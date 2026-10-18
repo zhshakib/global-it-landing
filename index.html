@@ -1,23 +1,18 @@
-
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta
-    name="description"
-    content="Global IT delivers managed IT services, cloud solutions, and technology support for businesses."
-  >
+  <meta name="description"
+    content="Global IT delivers managed IT services, cloud solutions, and technology support for businesses.">
 
   <meta name="theme-color" content="#ffffff">
   <title>Global IT | Technology Solutions</title>
 
   <!-- Bootstrap -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles -->
   <link rel="stylesheet" href="css/style.css">
@@ -52,15 +47,8 @@
           Global<span class="brand-accent">IT</span>
         </a>
 
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#mainNavigation"
-          aria-controls="mainNavigation"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation"
+          aria-controls="mainNavigation" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -80,12 +68,7 @@
             </li>
           </ul>
 
-          <button
-            class="theme-toggle"
-            id="theme-toggle"
-            type="button"
-            aria-label="Switch to dark mode"
-          >
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode">
             <span id="theme-icon" aria-hidden="true">☾</span>
             <span id="theme-label">Dark mode</span>
           </button>
@@ -180,28 +163,15 @@
 
         <div class="hero-bottom">
           <div class="hero-controls">
-            <button
-              class="hero-arrow"
-              id="hero-prev"
-              type="button"
-              aria-label="Previous slide"
-            >←</button>
+            <button class="hero-arrow" id="hero-prev" type="button" aria-label="Previous slide">←</button>
 
             <div class="hero-dots" aria-label="Choose a slide">
-              <button class="hero-dot is-active" type="button"
-                aria-label="Slide 1" aria-pressed="true"></button>
-              <button class="hero-dot" type="button"
-                aria-label="Slide 2" aria-pressed="false"></button>
-              <button class="hero-dot" type="button"
-                aria-label="Slide 3" aria-pressed="false"></button>
+              <button class="hero-dot is-active" type="button" aria-label="Slide 1" aria-pressed="true"></button>
+              <button class="hero-dot" type="button" aria-label="Slide 2" aria-pressed="false"></button>
+              <button class="hero-dot" type="button" aria-label="Slide 3" aria-pressed="false"></button>
             </div>
 
-            <button
-              class="hero-arrow"
-              id="hero-next"
-              type="button"
-              aria-label="Next slide"
-            >→</button>
+            <button class="hero-arrow" id="hero-next" type="button" aria-label="Next slide">→</button>
           </div>
 
           <span class="hero-counter" id="hero-counter">01 / 03</span>
@@ -248,22 +218,389 @@
       </div>
     </section>
 
-    <!-- Sections to build next -->
-    <section class="next-section" id="about">
+
+    <!-- About Us -->
+    <section class="about-section" id="about">
       <div class="container">
-        <p class="section-eyebrow">ABOUT GLOBAL IT</p>
-        <h2>Technology built around your business.</h2>
-        <p>We'll introduce the company and its approach to IT here.</p>
+
+        <div class="about-heading">
+          <p class="section-eyebrow">ABOUT GLOBAL IT</p>
+          <h2>IT solutions built around <span>your business.</span></h2>
+          <p>
+            We believe technology should work for your business—not the
+            other way around. Our approach focuses on practical solutions,
+            reliable support, and technology that fits your needs.
+          </p>
+        </div>
+
+        <div class="row align-items-center g-5 about-content">
+          <div class="col-lg-6">
+            <div class="about-visual">
+              <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1100&q=85"
+                alt="A modern collaborative office workspace" loading="lazy" />
+
+              <div class="about-image-caption">
+                <span class="caption-dot"></span>
+                <span>Technology with purpose</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="about-copy">
+              <span class="about-location">MELBOURNE, AUSTRALIA</span>
+
+              <h3>A technology partner that puts your needs first.</h3>
+
+              <p>
+                Global IT Technology is an Australian family-owned business
+                founded in Melbourne. The company was built around a simple
+                idea: provide flexible IT services and help customers make
+                informed technology decisions.
+              </p>
+
+              <p>
+                From managed IT and cloud services to consultancy,
+                maintenance, procurement, and security, the focus is on
+                finding solutions that support your goals and budget.
+              </p>
+
+              <div class="about-values">
+                <div class="about-value">
+                  <span class="value-icon" aria-hidden="true">✓</span>
+                  <div>
+                    <h4>Solutions that fit</h4>
+                    <p>Options tailored to your business requirements.</p>
+                  </div>
+                </div>
+
+                <div class="about-value">
+                  <span class="value-icon" aria-hidden="true">✓</span>
+                  <div>
+                    <h4>Support you can rely on</h4>
+                    <p>Technology services focused on reliability and performance.</p>
+                  </div>
+                </div>
+              </div>
+
+              <a href="#contact" class="about-link">
+                Let's talk about your IT needs
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
-    <section class="next-section contact-preview" id="contact">
+    <!-- About Ends here -->
+
+    <!-- Partners Starts here -->
+
+    <!-- Technology Partners -->
+    <section class="partners-section" id="partners">
       <div class="container">
-        <p class="section-eyebrow">GET IN TOUCH</p>
-        <h2>Let's talk about your IT needs.</h2>
-        <p>Our working contact form will go here.</p>
+        <div class="partners-heading">
+          <p class="section-eyebrow">OUR TECHNOLOGY PARTNERS</p>
+          <h2>Technology backed by trusted names.</h2>
+          <p>
+            We work with established technology providers to support
+            business IT, networking, cloud, and security needs.
+          </p>
+        </div>
+
+
+        <div class="partners-carousel">
+          <div class="partners-track">
+
+            <div class="partner-item">
+              <img src="assets/icons/partners/1.png" alt="Microsoft" loading="lazy">
+            </div>
+            <div class="partner-item">
+              <img src="assets/icons/partners/2.png" alt="Cisco" loading="lazy">
+            </div>
+            <div class="partner-item">
+              <img src="assets/icons/partners/3.png" alt="Cisco Meraki" loading="lazy">
+            </div>
+            <div class="partner-item">
+              <img src="assets/icons/partners/4.png" alt="Check Point" loading="lazy">
+            </div>
+            <div class="partner-item">
+              <img src="assets/icons/partners/5.png" alt="Poly" loading="lazy">
+            </div>
+            <div class="partner-item">
+              <img src="assets/icons/partners/6.png" alt="Ekahau" loading="lazy">
+            </div>
+            <div class="partner-item">
+              <img src="assets/icons/partners/7.png" alt="Duo" loading="lazy">
+            </div>
+            <div class="partner-item">
+              <img src="assets/icons/partners/8.png" alt="Dicker Data" loading="lazy">
+            </div>
+
+            <!-- Duplicate set for seamless scrolling -->
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/1.png" alt="">
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/2.png" alt="">
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/3.png" alt="">
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/4.png" alt="">
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/5.png" alt="">
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/6.png" alt="">
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/7.png" alt="">
+            </div>
+            <div class="partner-item" aria-hidden="true">
+              <img src="assets/icons/partners/8.png" alt="">
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </section>
+    <!-- Partners End here -->
+
+    <!-- Our History -->
+
+    <!-- Company Statistics -->
+    <section class="stats-section" aria-label="Global IT at a glance">
+      <div class="container">
+        <div class="stats-grid">
+
+          <div class="stat-item">
+            <span class="stat-number">40+</span>
+            <span class="stat-label">Years of Combined Experience</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Client Satisfaction*</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">06</span>
+            <span class="stat-label">Core Service Areas</span>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-number">AU</span>
+            <span class="stat-label">Australian IT Provider</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Our History Ends -->
+
+    <!-- Get in Touch -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+
+        <div class="contact-heading">
+          <p class="section-eyebrow">LET'S WORK TOGETHER</p>
+          <h2>Let's make technology <span>work for you.</span></h2>
+          <p>
+            Have a project in mind or need help with your IT?
+            Tell us what you're looking for, and let's start a conversation.
+          </p>
+        </div>
+
+        <div class="row g-4 g-xl-5 align-items-stretch contact-layout">
+
+          <!-- Contact information -->
+          <div class="col-lg-5">
+            <div class="contact-info">
+
+              <span class="contact-badge">
+                <span class="contact-status-dot"></span>
+                HERE TO HELP YOUR BUSINESS
+              </span>
+
+              <h3>Have a question? We'd love to hear from you.</h3>
+
+              <p class="contact-info-description">
+                Whether you need ongoing IT support, cloud solutions,
+                or expert advice, our team is ready to explore the
+                right solution for your business.
+              </p>
+
+              <div class="contact-details">
+
+                <div class="contact-detail">
+                  <span class="contact-detail-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <rect x="3" y="5" width="18" height="14" rx="3" stroke="currentColor" stroke-width="1.7" />
+                      <path d="m4 7 8 6 8-6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <div>
+                    <h4>Email us</h4>
+                    <p>Have a question or an enquiry?</p>
+                    <span class="contact-detail-value">
+                      Get in touch using the form
+                    </span>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <span class="contact-detail-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <path d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z" stroke="currentColor" stroke-width="1.7"
+                        stroke-linejoin="round" />
+                      <circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="1.7" />
+                    </svg>
+                  </span>
+                  <div>
+                    <h4>Our location</h4>
+                    <p>Proudly based in</p>
+                    <span class="contact-detail-value">
+                      Melbourne, Australia
+                    </span>
+                  </div>
+                </div>
+
+                <div class="contact-detail">
+                  <span class="contact-detail-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none">
+                      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7" />
+                      <path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </span>
+                  <div>
+                    <h4>Business enquiries</h4>
+                    <p>Tell us about your requirements.</p>
+                    <span class="contact-detail-value">
+                      We'll help you find the next step.
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="contact-info-footer">
+                <span class="contact-footer-mark" aria-hidden="true">G</span>
+                <div>
+                  <strong>Global<span>IT</span></strong>
+                  <p>Technology with purpose.</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <div class="col-lg-7">
+            <div class="contact-form-card">
+
+              <div class="contact-form-heading">
+                <div>
+                  <span class="contact-form-step">GET STARTED</span>
+                  <h3>Send us a message</h3>
+                  <p>Fill in the details below and tell us how we can help.</p>
+                </div>
+                <span class="contact-form-symbol" aria-hidden="true">↗</span>
+              </div>
+
+              <form id="contact-form" novalidate>
+                <div class="row g-4">
+
+                  <div class="col-md-6">
+                    <label class="contact-label" for="contact-name">
+                      Full name <span>*</span>
+                    </label>
+                    <input class="form-control contact-input" type="text" id="contact-name" name="name"
+                      placeholder="e.g. Alex Smith" autocomplete="name" maxlength="100" required />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="contact-label" for="contact-email">
+                      Work email <span>*</span>
+                    </label>
+                    <input class="form-control contact-input" type="email" id="contact-email" name="email"
+                      placeholder="alex@company.com" autocomplete="email" maxlength="254" required />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="contact-label" for="contact-company">
+                      Company name
+                    </label>
+                    <input class="form-control contact-input" type="text" id="contact-company" name="company"
+                      placeholder="Your company" autocomplete="organization" maxlength="150" />
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="contact-label" for="contact-service">
+                      What can we help with? <span>*</span>
+                    </label>
+                    <select class="form-select contact-input" id="contact-service" name="service" required>
+                      <option value="" selected disabled>
+                        Select a service
+                      </option>
+                      <option value="Managed IT">Managed IT</option>
+                      <option value="Cloud Solutions">Cloud Solutions</option>
+                      <option value="IT Consultancy">IT Consultancy</option>
+                      <option value="Cybersecurity">Cybersecurity</option>
+                      <option value="Networking">Networking</option>
+                      <option value="Hardware and Procurement">
+                        Hardware &amp; Procurement
+                      </option>
+                      <option value="Other">Other enquiry</option>
+                    </select>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="contact-label" for="contact-message">
+                      Your message <span>*</span>
+                    </label>
+                    <textarea class="form-control contact-input contact-textarea" id="contact-message" name="message"
+                      rows="5" placeholder="Tell us a little about your project or IT requirements..." minlength="10"
+                      maxlength="3000" required></textarea>
+                    <div class="contact-field-hint">
+                      A few details will help us understand your needs.
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <button class="btn contact-submit" type="submit">
+                      <span>Send your enquiry</span>
+                      <span class="contact-submit-arrow" aria-hidden="true">→</span>
+                    </button>
+
+                    <p class="contact-privacy-note">
+                      <span aria-hidden="true">◇</span>
+                      Your information should only be used to respond
+                      to your enquiry.
+                    </p>
+
+                    <p class="contact-form-status" id="contact-form-status" role="status" aria-live="polite"
+                      tabindex="-1" hidden></p>
+                  </div>
+
+                </div>
+              </form>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- Get in Touch Ends -->
+
   </main>
 
   <footer class="site-footer">
@@ -273,12 +610,62 @@
     </div>
   </footer>
 
+
+  <!-- Modal for Success -->
+
+  <!-- Contact Success Modal -->
+  <div class="modal fade contact-success-modal" id="contact-success-modal" tabindex="-1"
+    aria-labelledby="contact-success-title" aria-describedby="contact-success-description" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <button type="button" class="contact-modal-close" data-bs-dismiss="modal" aria-label="Close">
+          &times;
+        </button>
+
+        <div class="modal-body">
+
+          <div class="success-checkmark" aria-hidden="true">
+            <svg viewBox="0 0 100 100" fill="none">
+              <circle class="success-check-circle" cx="50" cy="50" r="44" />
+              <path class="success-check-path" d="M29 51 L43 65 L72 35" />
+            </svg>
+          </div>
+
+          <span class="success-eyebrow">ENQUIRY RECEIVED</span>
+
+          <h2 id="contact-success-title">
+            We'll Connect You Soon!
+          </h2>
+
+          <p id="contact-success-description">
+            Thank you for reaching out to Global IT.
+            We appreciate your interest and look forward
+            to connecting with you soon.
+          </p>
+
+          <button type="button" class="btn success-modal-button" data-bs-dismiss="modal">
+            Back to website
+            <span aria-hidden="true">→</span>
+          </button>
+
+          <div class="success-modal-footer">
+            <span aria-hidden="true">✓</span>
+            Thank you for choosing Global IT
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal Ends -->
+
+
   <!-- Bootstrap JavaScript -->
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom JavaScript -->
   <script src="js/script.js"></script>
 </body>
+
 </html>

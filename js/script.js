@@ -1,169 +1,219 @@
 
 /* =========================================
-   1. Theme toggle
+   1. Theme Toggle
 ========================================= */
 
-const root = document.documentElement;
 const themeToggle = document.querySelector("#theme-toggle");
 const themeIcon = document.querySelector("#theme-icon");
 const themeLabel = document.querySelector("#theme-label");
-const currentYear = document.querySelector("#current-year");
-
-function updateThemeButton(theme) {
-  const isDark = theme === "dark";
-
-  themeIcon.textContent = isDark ? "☀" : "☾";
-  themeLabel.textContent = isDark ? "Light mode" : "Dark mode";
-
-  themeToggle.setAttribute(
-    "aria-label",
-    `Switch to ${isDark ? "light" : "dark"} mode`
-  );
-}
 
 function setTheme(theme) {
-  root.setAttribute("data-bs-theme", theme);
-  updateThemeButton(theme);
+  document.documentElement.setAttribute("data-bs-theme", theme);
+
+  if (themeIcon) {
+    themeIcon.textContent = theme === "dark" ? "☀" : "☾";
+  }
+
+  if (themeLabel) {
+    themeLabel.textContent = theme === "dark" ? "Light mode" : "Dark mode";
+  }
+
+  if (themeToggle) {
+    themeToggle.setAttribute(
+      "aria-label",
+      theme === "dark" ? "Switch to light mode" : "Switch to dark mode"
+    );
+  }
 
   try {
     localStorage.setItem("theme", theme);
   } catch {
-    // The theme still works if browser storage is unavailable.
+    // Theme still works if localStorage is unavailable.
   }
 }
 
-themeToggle.addEventListener("click", () => {
-  const currentTheme = root.getAttribute("data-bs-theme");
-  setTheme(currentTheme === "dark" ? "light" : "dark");
-});
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    const currentTheme =
+      document.documentElement.getAttribute("data-bs-theme");
 
-updateThemeButton(root.getAttribute("data-bs-theme"));
+    setTheme(currentTheme === "dark" ? "light" : "dark");
+  });
+}
 
-currentYear.textContent = new Date().getFullYear();
+// Sync the toggle with the theme already applied in the HTML.
+setTheme(
+  document.documentElement.getAttribute("data-bs-theme") || "light"
+);
 
 
 /* =========================================
-   2. Hero slider
+   2. Hero Slider
 ========================================= */
 
-const heroSection = document.querySelector(".hero-section");
-const heroSlides = [...document.querySelectorAll(".hero-slide")];
-const heroDots = [...document.querySelectorAll(".hero-dot")];
+const heroSlides = document.querySelectorAll(".hero-slide");
+const heroDots = document.querySelectorAll(".hero-dot");
 const heroPrev = document.querySelector("#hero-prev");
 const heroNext = document.querySelector("#hero-next");
 const heroCounter = document.querySelector("#hero-counter");
+const heroSection = document.querySelector(".hero-section");
+
+let currentSlide = 0;
+let heroInterval;
+const heroDelay = 5500;
 
 const reducedMotion = window.matchMedia(
   "(prefers-reduced-motion: reduce)"
-);
+).matches;
 
-if (
-  heroSection &&
-  heroSlides.length &&
-  heroSlides.length === heroDots.length &&
-  heroPrev &&
-  heroNext
-) {
-  let activeSlide = 0;
-  let sliderTimer;
-  let isHovered = false;
-  let isFocused = false;
+function showSlide(index) {
+  if (!heroSlides.length) return;
 
-  function showSlide(index) {
-    activeSlide =
-      (index + heroSlides.length) % heroSlides.length;
+  currentSlide = (index + heroSlides.length) % heroSlides.length;
 
-    heroSlides.forEach((slide, i) => {
-      const isActive = i === activeSlide;
+  heroSlides.forEach((slide, i) => {
+    const isActive = i === currentSlide;
 
-      slide.classList.toggle("is-active", isActive);
-      slide.setAttribute("aria-hidden", String(!isActive));
+    slide.classList.toggle("is-active", isActive);
+    slide.setAttribute("aria-hidden", String(!isActive));
 
-      slide.querySelectorAll("a").forEach((link) => {
-        link.tabIndex = isActive ? 0 : -1;
-      });
+    slide.querySelectorAll("a, button").forEach((element) => {
+      element.tabIndex = isActive ? 0 : -1;
     });
-
-    heroDots.forEach((dot, i) => {
-      const isActive = i === activeSlide;
-
-      dot.classList.toggle("is-active", isActive);
-      dot.setAttribute("aria-pressed", String(isActive));
-    });
-
-    if (heroCounter) {
-      heroCounter.textContent =
-        `${String(activeSlide + 1).padStart(2, "0")} / ` +
-        `${String(heroSlides.length).padStart(2, "0")}`;
-    }
-  }
-
-  function stopSlider() {
-    clearInterval(sliderTimer);
-    sliderTimer = undefined;
-  }
-
-  function startSlider() {
-    stopSlider();
-
-    if (
-      reducedMotion.matches ||
-      document.hidden ||
-      isHovered ||
-      isFocused
-    ) {
-      return;
-    }
-
-    sliderTimer = setInterval(() => {
-      showSlide(activeSlide + 1);
-    }, 5500);
-  }
-
-  function changeSlide(index) {
-    showSlide(index);
-    startSlider();
-  }
-
-  heroPrev.addEventListener("click", () => {
-    changeSlide(activeSlide - 1);
   });
 
-  heroNext.addEventListener("click", () => {
-    changeSlide(activeSlide + 1);
+  heroDots.forEach((dot, i) => {
+    const isActive = i === currentSlide;
+
+    dot.classList.toggle("is-active", isActive);
+    dot.setAttribute("aria-pressed", String(isActive));
+  });
+
+  if (heroCounter) {
+    heroCounter.textContent =
+      `${String(currentSlide + 1).padStart(2, "0")} / ` +
+      `${String(heroSlides.length).padStart(2, "0")}`;
+  }
+}
+
+function stopHeroAutoplay() {
+  clearInterval(heroInterval);
+}
+
+function startHeroAutoplay() {
+  stopHeroAutoplay();
+
+  if (reducedMotion || document.hidden || heroSlides.length < 2) {
+    return;
+  }
+
+  heroInterval = setInterval(() => {
+    showSlide(currentSlide + 1);
+  }, heroDelay);
+}
+
+if (heroSlides.length) {
+  showSlide(0);
+
+  heroPrev?.addEventListener("click", () => {
+    showSlide(currentSlide - 1);
+    startHeroAutoplay();
+  });
+
+  heroNext?.addEventListener("click", () => {
+    showSlide(currentSlide + 1);
+    startHeroAutoplay();
   });
 
   heroDots.forEach((dot, index) => {
     dot.addEventListener("click", () => {
-      changeSlide(index);
+      showSlide(index);
+      startHeroAutoplay();
     });
   });
 
-  heroSection.addEventListener("mouseenter", () => {
-    isHovered = true;
-    stopSlider();
-  });
-
-  heroSection.addEventListener("mouseleave", () => {
-    isHovered = false;
-    startSlider();
-  });
-
-  heroSection.addEventListener("focusin", () => {
-    isFocused = true;
-    stopSlider();
-  });
-
-  heroSection.addEventListener("focusout", (event) => {
+  heroSection?.addEventListener("mouseenter", stopHeroAutoplay);
+  heroSection?.addEventListener("mouseleave", startHeroAutoplay);
+  heroSection?.addEventListener("focusin", stopHeroAutoplay);
+  heroSection?.addEventListener("focusout", (event) => {
     if (!heroSection.contains(event.relatedTarget)) {
-      isFocused = false;
-      startSlider();
+      startHeroAutoplay();
     }
   });
 
-  document.addEventListener("visibilitychange", startSlider);
-  reducedMotion.addEventListener("change", startSlider);
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      stopHeroAutoplay();
+    } else {
+      startHeroAutoplay();
+    }
+  });
 
-  showSlide(0);
-  startSlider();
+  startHeroAutoplay();
+}
+
+
+/* =========================================
+   3. Footer Year
+========================================= */
+
+const currentYear = document.querySelector("#current-year");
+
+if (currentYear) {
+  currentYear.textContent = new Date().getFullYear();
+}
+
+
+/* =========================================
+   4. Contact Form Validation & Success Modal
+========================================= */
+
+const contactForm = document.querySelector("#contact-form");
+const successModalElement = document.querySelector(
+  "#contact-success-modal"
+);
+
+if (contactForm && successModalElement) {
+  const successModal = new bootstrap.Modal(successModalElement);
+
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const name = document.querySelector("#contact-name").value.trim();
+    const email = document.querySelector("#contact-email").value.trim();
+    const service = document.querySelector("#contact-service").value;
+    const message = document.querySelector("#contact-message").value.trim();
+
+    // Check required fields.
+    if (!name || !email || !service || !message) {
+      alert("Please fill in all required fields.");
+      return;
+    }
+
+    // Check email format.
+    const emailField = document.querySelector("#contact-email");
+
+    if (!emailField.checkValidity()) {
+      alert("Please enter a valid email address.");
+      emailField.focus();
+      return;
+    }
+
+    // Check message length.
+    if (message.length < 10) {
+      alert("Your message must be at least 10 characters long.");
+      document.querySelector("#contact-message").focus();
+      return;
+    }
+
+    if (message.length > 3000) {
+      alert("Your message cannot exceed 3000 characters.");
+      document.querySelector("#contact-message").focus();
+      return;
+    }
+
+    // Validation passed: show the success modal.
+    successModal.show();
+    contactForm.reset();
+  });
 }
